@@ -1,1 +1,2 @@
-const express = require('express');
+import * as controller from './src/controller';
+controller.start();
