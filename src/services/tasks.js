@@ -1,10 +1,12 @@
 const database = require('./database');
 const handleStudentEntered = (location) => {
-    database.incrementLocationCount(location);
+    console.log("Student Entered");
+    //database.incrementLocationCount(location);
 }
 
 const handleStudentExited = (location) => {
-    database.decrementLocationCount(location);
+    console.log("Student left");
+    //database.decrementLocationCount(location);
 }
 
 module.exports = {handleStudentEntered, handleStudentExited};

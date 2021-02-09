@@ -1,2 +1,2 @@
-import * as controller from './src/controller';
-controller.start();
+const server = require('./src/controller');
+server.begin();
