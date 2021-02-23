@@ -1,12 +1,7 @@
 const database = require('./database');
-const handleStudentEntered = (location) => {
-    console.log("Student Entered");
-    //database.incrementLocationCount(location);
+
+const handleLocationOccupancyUpdate = (locationName, organizationID, occupancyCount) => {
+    database.updateLocationCount(locationName, organizationID, occupancyCount);
 }
 
-const handleStudentExited = (location) => {
-    console.log("Student left");
-    //database.decrementLocationCount(location);
-}
-
-module.exports = {handleStudentEntered, handleStudentExited};
+module.exports = {handleLocationOccupancyUpdate};

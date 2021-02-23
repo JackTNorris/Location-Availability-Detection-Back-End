@@ -3,15 +3,13 @@ const client = require('./loaders/mqttClient');
 const tasks = require('./services/tasks');
 
 const begin = () => {
-    console.log("Started running");
-    client.on('message', (topic, room) => {
+    console.log("Started server");
+    client.on('message', (topic, roomData) => {
+        roomData = JSON.parse(roomData);
         switch(topic)
         {
-            case 'room/studentEntered':
-                tasks.handleStudentEntered(room);
-                break;
-            case 'room/studentExited':
-                tasks.handleStudentExited(room);
+            case 'room/occupancyUpdate':
+                tasks.handleLocationOccupancyUpdate(roomData.name, roomData.organization, roomData.occupancy);
                 break;
         }
     });
