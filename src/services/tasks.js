@@ -1,7 +1,7 @@
 const database = require('./database');
 
-const handleLocationOccupancyUpdate = (locationName, organizationID, occupancyCount) => {
-    database.updateLocationCount(locationName, organizationID, occupancyCount);
+const handleLocationOccupancyUpdate = (organizationID, locationKey, occupancyCount) => {
+    database.updateLocationCount(organizationID, locationKey, occupancyCount);
 }
 
 module.exports = {handleLocationOccupancyUpdate};

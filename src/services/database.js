@@ -1,6 +1,8 @@
 const firebaseDB = require('../loaders/firebaseDB');
 
-const updateLocationCount = (locationName, organizationID, occupancyCount) => {
+const updateLocationCount = (organizationID, locationKey, occupancyCount) => {
+    firebaseDB.ref(`/locations/${organizationID}/${locationKey}`).update({occupancy: occupancyCount});
+    /*
     firebaseDB.ref(`/locations/${organizationID}`).once('value').then(async (snapshot) => {
         for(let key in snapshot.val())
         {
@@ -10,6 +12,7 @@ const updateLocationCount = (locationName, organizationID, occupancyCount) => {
             }
         }
     })
+    */
 }
 /*
 const getLocationCount = async (locationName, organizationID) => {
